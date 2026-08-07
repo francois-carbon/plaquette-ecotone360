@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecotone 360 — Le Guide du Changement Vivant | Carbon Conseil</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#06111e',
+                            800: '#0B192C',
+                            700: '#14273E',
+                            600: '#1E3A5F',
+                        },
+                        emeraldCustom: {
+                            50: '#F0FDF8',
+                            100: '#CCFBF1',
+                            500: '#00A896',
+                            600: '#028090',
+                            700: '#05668D',
+                        },
+                        coralCustom: {
+                            500: '#EE6C4D',
+                            600: '#E05A3B',
+                        },
+                        sand: '#FAF8F5'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Newsreader', 'serif'],
+                        title: ['Cinzel', 'serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #00A896 0%, #028090 50%, #05668D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #06111e 0%, #0B192C 60%, #05668D 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(229, 231, 235, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(6, 17, 30, 0.08);
+        }
+        .dark .glass-card {
+            background: rgba(11, 25, 44, 0.88);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Realistic integrated nature background textures for plaquette feel */
+        .nature-card-sol {
+            background-image: linear-gradient(to bottom, rgba(250, 248, 245, 0.92), rgba(250, 248, 245, 0.96)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .dark .nature-card-sol {
+            background-image: linear-gradient(to bottom, rgba(6, 17, 30, 0.92), rgba(11, 25, 44, 0.96)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80');
+        }
+
+        .nature-card-tuteur {
+            background-image: linear-gradient(to bottom, rgba(250, 248, 245, 0.92), rgba(250, 248, 245, 0.96)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .dark .nature-card-tuteur {
+            background-image: linear-gradient(to bottom, rgba(6, 17, 30, 0.92), rgba(11, 25, 44, 0.96)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1000&q=80');
+        }
+
+        .nature-card-ecosysteme {
+            background-image: linear-gradient(to bottom, rgba(250, 248, 245, 0.92), rgba(250, 248, 245, 0.96)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .dark .nature-card-ecosysteme {
+            background-image: linear-gradient(to bottom, rgba(6, 17, 30, 0.92), rgba(11, 25, 44, 0.96)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80');
+        }
+
+        .nature-card-fruits {
+            background-image: linear-gradient(to bottom, rgba(250, 248, 245, 0.92), rgba(250, 248, 245, 0.96)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .dark .nature-card-fruits {
+            background-image: linear-gradient(to bottom, rgba(6, 17, 30, 0.92), rgba(11, 25, 44, 0.96)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80');
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .print-page-break { page-break-before: always; }
+            .glass-card { border: 1px solid #ddd !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-sand text-slate-800 dark:bg-navy-900 dark:text-slate-100 transition-colors duration-300 font-sans antialiased selection:bg-emeraldCustom-500 selection:text-white">
+
+    <!-- Progress Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 no-print transition-all duration-300 bg-white/90 dark:bg-navy-800/90 backdrop-blur-md border-b border-slate-200 dark:border-navy-700 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Brand / Logo Header -->
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center">
+                    <svg class="w-9 h-9 text-emeraldCustom-500 dark:text-emeraldCustom-100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="50" r="28" stroke="currentColor" stroke-width="4" stroke-dasharray="4 2"/>
+                        <circle cx="65" cy="50" r="28" stroke="currentColor" stroke-width="4"/>
+                        <path d="M50 25 C 40 40, 40 60, 50 75 C 60 60, 60 40, 50 25 Z" fill="currentColor" opacity="0.3"/>
+                        <path d="M45 42 Q 50 35, 55 42 T 50 58 T 45 42" stroke="currentColor" stroke-width="3" fill="none"/>
+                    </svg>
+                    <div class="ml-2.5 flex flex-col font-poppins">
+                        <span class="font-extrabold text-lg leading-tight tracking-tight text-navy-800 dark:text-white">CARBON <span class="text-emeraldCustom-500">CONSEIL</span></span>
+                        <span class="text-[9px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold">ECOTONES 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 text-xs font-poppins font-semibold uppercase tracking-wider">
+                <a href="#sol" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-700 transition flex items-center gap-1.5">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=80&q=80" class="w-4 h-4 rounded-full object-cover border border-emeraldCustom-500" alt="Sol">
+                    <span>1. Sol</span>
+                </a>
+                <a href="#tuteur" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-700 transition flex items-center gap-1.5">
+                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=80&q=80" class="w-4 h-4 rounded-full object-cover border border-teal-500" alt="Tuteur">
+                    <span>2. Tuteur</span>
+                </a>
+                <a href="#ecosysteme" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-700 transition flex items-center gap-1.5">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=80&q=80" class="w-4 h-4 rounded-full object-cover border border-sky-500" alt="Écosystème">
+                    <span>3. Écosystème</span>
+                </a>
+                <a href="#fruits" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-700 transition flex items-center gap-1.5">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=80&q=80" class="w-4 h-4 rounded-full object-cover border border-amber-500" alt="Fruits">
+                    <span>4. Fruits</span>
+                </a>
+                <a href="#synthesis" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-700 transition">🧭 Boussoles</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-2 font-poppins">
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-navy-700 transition" title="Changer le thème">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+
+                <button onclick="window.print()" class="hidden sm:inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-navy-800 dark:bg-emeraldCustom-500 text-white hover:bg-navy-700 dark:hover:bg-emeraldCustom-600 transition shadow">
+                    <i class="fa-solid fa-print"></i>
+                    <span>PDF / Plaquette</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator Bar -->
+        <div class="h-1 bg-slate-200 dark:bg-navy-700 w-full">
+            <div id="scrollBar" class="h-full bg-gradient-to-r from-emeraldCustom-500 via-teal-400 to-emeraldCustom-600 w-0 transition-all duration-150"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="pt-20">
+
+        <!-- HERO / COVER PAGE SECTION -->
+        <section class="relative min-h-[90vh] flex items-center justify-center gradient-bg text-white px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
+            <!-- Background Decorative Elements -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <svg class="w-full h-full" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="400" cy="400" r="300" stroke="#00A896" stroke-width="2" stroke-dasharray="8 8"/>
+                    <circle cx="400" cy="400" r="200" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <path d="M 200,400 Q 400,100 600,400 T 200,400" stroke="#00A896" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto text-center space-y-8 z-10">
+                <!-- Branding Badge -->
+                <div class="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-poppins font-semibold tracking-wider uppercase">
+                    <span class="w-2 h-2 rounded-full bg-emeraldCustom-500 animate-pulse"></span>
+                    <span>Carbon Conseil &bull; François Miyeli</span>
+                </div>
+
+                <!-- Main Title -->
+                <div class="space-y-4">
+                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-poppins tracking-tight font-black text-white">
+                        ECOTONES <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-400 to-teal-200">360</span>
+                    </h1>
+                    <p class="text-2xl sm:text-3xl font-serif italic text-emeraldCustom-100 max-w-3xl mx-auto font-light">
+                        Le guide du changement vivant
+                    </p>
+                </div>
+
+                <!-- Pillars Tags -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-poppins font-bold text-slate-200 pt-2">
+                    <span class="px-4 py-2 rounded-xl bg-navy-800/80 border border-slate-700/60 shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-brain text-emeraldCustom-500"></i> Neurosciences
+                    </span>
+                    <span class="px-4 py-2 rounded-xl bg-navy-800/80 border border-slate-700/60 shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project text-emeraldCustom-500"></i> Lippitt-Knoster
+                    </span>
+                    <span class="px-4 py-2 rounded-xl bg-navy-800/80 border border-slate-700/60 shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-arrows-spin text-emeraldCustom-500"></i> Matrice RCOV
+                    </span>
+                    <span class="px-4 py-2 rounded-xl bg-navy-800/80 border border-slate-700/60 shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-bullseye text-emeraldCustom-500"></i> Méthode OKR
+                    </span>
+                </div>
+
+                <!-- Main Quote Callout -->
+                <div class="pt-8 max-w-3xl mx-auto">
+                    <blockquote class="p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md relative text-left">
+                        <i class="fa-solid fa-quote-left text-3xl text-emeraldCustom-500/40 absolute top-4 left-4"></i>
+                        <p class="text-xl sm:text-2xl font-poppins font-bold text-slate-100 relative z-10 pl-6 leading-relaxed">
+                            "On ne sème pas dans un sol gelé."
+                        </p>
+                        <p class="text-xs font-poppins uppercase tracking-widest text-emeraldCustom-400 font-bold mt-3 text-right">
+                            — Principes de l'Écologie du Changement
+                        </p>
+                    </blockquote>
+                </div>
+
+                <!-- Scroll Down CTA -->
+                <div class="pt-6 no-print">
+                    <a href="#avant-propos" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emeraldCustom-500 hover:bg-emeraldCustom-600 text-white font-poppins font-bold shadow-lg hover:shadow-emeraldCustom-500/30 transition transform hover:-translate-y-0.5">
+                        <span>Explorer le guide</span>
+                        <i class="fa-solid fa-arrow-down animate-bounce"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVANT DE SEMER (INTRODUCTION) -->
+        <section id="avant-propos" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200/80 dark:border-navy-700 relative overflow-hidden">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-emeraldCustom-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex items-center space-x-3 text-emeraldCustom-600 dark:text-emeraldCustom-500 font-poppins font-bold uppercase tracking-wider text-xs mb-3">
+                    <i class="fa-solid fa-seedling text-lg"></i>
+                    <span>Avant de semer</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl font-poppins font-bold text-navy-800 dark:text-white mb-6">
+                    Pourquoi tant de transformations échouent-elles ?
+                </h2>
+
+                <div class="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 space-y-4 font-serif leading-relaxed">
+                    <p class="text-xl leading-relaxed text-slate-700 dark:text-slate-200">
+                        Ce guide est né d'une question simple : pourquoi tant de transformations échouent-elles, malgré la bonne volonté, malgré les ressources, malgré l'élan initial ?
+                    </p>
+                    <p>
+                        La réponse est rarement dans le manque d'outils. Elle est dans la manière dont on prépare le terrain — <strong class="text-emeraldCustom-600 dark:text-emeraldCustom-500">humain, organisationnel, économique</strong> — avant de planter la moindre graine.
+                    </p>
+                    <div class="p-6 my-6 rounded-2xl bg-emeraldCustom-50/80 dark:bg-navy-800/80 border-l-4 border-emeraldCustom-500">
+                        <p class="font-sans text-base text-navy-800 dark:text-slate-200 font-medium">
+                            <strong>Ecotones 360</strong> s'inspire de l'écologie des zones de transition — ces espaces entre deux milieux où la biodiversité est la plus riche, où les formes de vie les plus robustes émergent. C'est là, dans la tension fertile entre l'ancien et le nouveau, que naît la transformation durable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE DU GUIDE (SUMMARY GRID) -->
+        <section class="py-12 bg-slate-100/70 dark:bg-navy-800/50 border-y border-slate-200 dark:border-navy-700 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-poppins font-bold uppercase tracking-widest text-emeraldCustom-600 dark:text-emeraldCustom-500">Vision Systémique</span>
+                    <h2 class="text-3xl font-poppins font-bold text-navy-800 dark:text-white mt-1">Architecture globale du guide</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm font-serif">Chaque passage d'une étape à l'autre est un écotone — une zone de tension fertile où se rencontrent compréhension, structure, stratégie et action.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Step 1 Card -->
+                    <a href="#sol" class="group glass-card rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border-t-4 border-emerald-500 relative overflow-hidden nature-card-sol">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-poppins font-bold text-lg shadow-sm">1</span>
+                            <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-emerald-500/40 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Le Sol">
+                            </div>
+                        </div>
+                        <span class="text-xs font-poppins font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Étape 1 &bull; Comprendre</span>
+                        <h3 class="text-xl font-poppins font-bold text-navy-800 dark:text-white mt-1 group-hover:text-emeraldCustom-500 transition">Le Sol</h3>
+                        <div class="mt-4 pt-4 border-t border-slate-200/80 dark:border-navy-700/80 text-xs space-y-2 font-sans">
+                            <p class="text-slate-500 dark:text-slate-400"><strong class="font-poppins">Outil :</strong> Neurosciences</p>
+                            <p class="text-slate-700 dark:text-slate-300 font-medium">Identifier ses freins et leviers cognitifs</p>
+                        </div>
+                    </a>
+
+                    <!-- Step 2 Card -->
+                    <a href="#tuteur" class="group glass-card rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border-t-4 border-teal-500 relative overflow-hidden nature-card-tuteur">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950/80 text-teal-600 dark:text-teal-400 flex items-center justify-center font-poppins font-bold text-lg shadow-sm">2</span>
+                            <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-teal-500/40 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Le Tuteur">
+                            </div>
+                        </div>
+                        <span class="text-xs font-poppins font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">Étape 2 &bull; Structurer</span>
+                        <h3 class="text-xl font-poppins font-bold text-navy-800 dark:text-white mt-1 group-hover:text-emeraldCustom-500 transition">Le Tuteur</h3>
+                        <div class="mt-4 pt-4 border-t border-slate-200/80 dark:border-navy-700/80 text-xs space-y-2 font-sans">
+                            <p class="text-slate-500 dark:text-slate-400"><strong class="font-poppins">Outil :</strong> Lippitt-Knoster</p>
+                            <p class="text-slate-700 dark:text-slate-300 font-medium">Encadrer le changement sans l'étouffer</p>
+                        </div>
+                    </a>
+
+                    <!-- Step 3 Card -->
+                    <a href="#ecosysteme" class="group glass-card rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border-t-4 border-sky-500 relative overflow-hidden nature-card-ecosysteme">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950/80 text-sky-600 dark:text-sky-400 flex items-center justify-center font-poppins font-bold text-lg shadow-sm">3</span>
+                            <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-sky-500/40 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="L'Écosystème">
+                            </div>
+                        </div>
+                        <span class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Étape 3 &bull; Reconfigurer</span>
+                        <h3 class="text-xl font-poppins font-bold text-navy-800 dark:text-white mt-1 group-hover:text-emeraldCustom-500 transition">L'Écosystème</h3>
+                        <div class="mt-4 pt-4 border-t border-slate-200/80 dark:border-navy-700/80 text-xs space-y-2 font-sans">
+                            <p class="text-slate-500 dark:text-slate-400"><strong class="font-poppins">Outil :</strong> Matrice RCOV</p>
+                            <p class="text-slate-700 dark:text-slate-300 font-medium">Aligner le modèle économique</p>
+                        </div>
+                    </a>
+
+                    <!-- Step 4 Card -->
+                    <a href="#fruits" class="group glass-card rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border-t-4 border-amber-500 relative overflow-hidden nature-card-fruits">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center font-poppins font-bold text-lg shadow-sm">4</span>
+                            <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-amber-500/40 shadow-md">
+                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Les Fruits">
+                            </div>
+                        </div>
+                        <span class="text-xs font-poppins font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Étape 4 &bull; Activer</span>
+                        <h3 class="text-xl font-poppins font-bold text-navy-800 dark:text-white mt-1 group-hover:text-emeraldCustom-500 transition">Les Fruits</h3>
+                        <div class="mt-4 pt-4 border-t border-slate-200/80 dark:border-navy-700/80 text-xs space-y-2 font-sans">
+                            <p class="text-slate-500 dark:text-slate-400"><strong class="font-poppins">Outil :</strong> Méthode OKR</p>
+                            <p class="text-slate-700 dark:text-slate-300 font-medium">Mesurer, ajuster, ancrer</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 : LE SOL (NEUROSCIENCES) -->
+        <section id="sol" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 nature-card-sol shadow-2xl relative overflow-hidden border border-emerald-500/20">
+                <div class="flex items-center space-x-3 mb-4 font-poppins">
+                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/80 dark:text-emerald-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 1</span>
+                    <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Neurosciences</span>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
+                    <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
+                        Le Sol — <span class="font-serif italic font-normal text-emeraldCustom-600 dark:text-emeraldCustom-500">Comprendre son terrain intérieur</span>
+                    </h2>
+                    <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-emerald-500/50 shadow-lg shrink-0">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Sol Vivant">
+                    </div>
+                </div>
+
+                <blockquote class="text-xl italic text-slate-700 dark:text-slate-300 border-l-4 border-emeraldCustom-500 pl-4 mb-8 font-serif">
+                    "Le changement n'est pas une décision, c'est une traversée."
+                </blockquote>
+
+                <p class="text-slate-700 dark:text-slate-300 max-w-4xl text-base leading-relaxed mb-12 font-sans">
+                    Avant toute stratégie, avant tout outil, il y a un être humain face à l'inconnu. Et cet être humain obéit à des lois biologiques anciennes que ni la volonté ni l'intelligence ne peuvent court-circuiter. Comprendre ces lois, c'est la première clé du changement vivant.
+                </p>
+
+                <!-- Dualité Cognitive Kahneman -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced text-emeraldCustom-500"></i>
+                        La dualité cognitive (Daniel Kahneman)
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Système 1 -->
+                        <div class="glass-card rounded-2xl p-6 border-l-8 border-amber-500 shadow-md">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="text-xs uppercase font-poppins font-bold text-amber-600 dark:text-amber-400 tracking-wider">Vitesse 1</span>
+                                    <h4 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white">Système 1 — L'Intuition</h4>
+                                </div>
+                                <span class="p-3 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-xl"><i class="fa-solid fa-bolt text-xl"></i></span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 font-sans">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-circle-check text-amber-500 mt-1"></i>
+                                    <span><strong class="font-poppins">Nature :</strong> Automatique, rapide, très économique en énergie.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-shield-halved text-amber-500 mt-1"></i>
+                                    <span><strong class="font-poppins">Fonction :</strong> Protège les habitudes, maintient la zone de confort.</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 p-2.5 rounded-lg">
+                                    <i class="fa-solid fa-triangle-exclamation mt-1"></i>
+                                    <span><strong class="font-poppins">Le piège :</strong> Renforce le biais de confirmation et la résistance réflexe.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Système 2 -->
+                        <div class="glass-card rounded-2xl p-6 border-l-8 border-indigo-500 shadow-md">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="text-xs uppercase font-poppins font-bold text-indigo-600 dark:text-indigo-400 tracking-wider">Vitesse 2</span>
+                                    <h4 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white">Système 2 — L'Analyse</h4>
+                                </div>
+                                <span class="p-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 rounded-xl"><i class="fa-solid fa-brain text-xl"></i></span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 font-sans">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-circle-check text-indigo-500 mt-1"></i>
+                                    <span><strong class="font-poppins">Nature :</strong> Lent, énergivore, conscient et réfléchi.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-compass text-indigo-500 mt-1"></i>
+                                    <span><strong class="font-poppins">Fonction :</strong> Planifie, imagine, résout les problèmes complexes.</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 p-2.5 rounded-lg">
+                                    <i class="fa-solid fa-battery-quarter mt-1"></i>
+                                    <span><strong class="font-poppins">Le piège :</strong> Rapidement épuisé par le stress, la fatigue et la surcharge.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Box -->
+                    <div class="mt-6 p-5 rounded-2xl bg-navy-800 text-white dark:bg-navy-700/80 shadow-md flex items-center gap-4">
+                        <i class="fa-solid fa-lightbulb text-3xl text-amber-400 shrink-0"></i>
+                        <p class="text-sm sm:text-base font-poppins font-medium leading-relaxed">
+                            <strong class="text-amber-300">Le drame de la transformation :</strong> Nous demandons à des collaborateurs épuisés de mobiliser leur <u>Système 2</u>, alors que leur <u>Système 1</u> hurle de ne rien changer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Les 3 freins -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white mb-6">
+                        Les 3 freins au passage à l'action
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm">
+                        Avant de changer, le cerveau évalue trois critères. Si un seul manque, la dynamique s'arrête :
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Pouvoir -->
+                        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-emeraldCustom-500 transition">
+                            <div>
+                                <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-300 flex items-center justify-center font-bold text-xl mb-4 font-poppins">1</div>
+                                <h4 class="text-xl font-poppins font-bold text-navy-800 dark:text-white">Le POUVOIR</h4>
+                                <p class="text-xs uppercase tracking-wider text-slate-500 mb-4 font-poppins font-semibold">La capacité d'agir</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                                    <strong>Locus de Contrôle :</strong> Le changement doit se situer explicitement dans notre zone d'influence directe.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-200 dark:border-navy-700 text-xs space-y-2">
+                                <p class="text-rose-600 dark:text-rose-400"><strong>Pièges :</strong> Sur-confiance ou impuissance acquise.</p>
+                                <p class="text-emeraldCustom-600 dark:text-emeraldCustom-400 font-semibold"><strong>Antidote (Marc Aurèle) :</strong> Distinguer ce qui dépend de nous de ce qui n'en dépend pas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Vouloir -->
+                        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-emeraldCustom-500 transition">
+                            <div>
+                                <div class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-300 flex items-center justify-center font-bold text-xl mb-4 font-poppins">2</div>
+                                <h4 class="text-xl font-poppins font-bold text-navy-800 dark:text-white">Le VOULOIR</h4>
+                                <p class="text-xs uppercase tracking-wider text-slate-500 mb-4 font-poppins font-semibold">La motivation</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                                    <strong>Autonomie & Lien Social :</strong> Pour vouloir changer, il faut se sentir auteur du choix sans menacer son appartenance.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-200 dark:border-navy-700 text-xs space-y-2">
+                                <p class="text-slate-500"><strong>Mécanisme :</strong> La peur d'exclusion est un frein biologique puissant.</p>
+                                <p class="text-emeraldCustom-600 dark:text-emeraldCustom-400 font-semibold"><strong>Levier clé :</strong> Transformer les normes du groupe surpasse l'information brute.</p>
+                            </div>
+                        </div>
+
+                        <!-- Savoir -->
+                        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-emeraldCustom-500 transition">
+                            <div>
+                                <div class="w-12 h-12 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-300 flex items-center justify-center font-bold text-xl mb-4 font-poppins">3</div>
+                                <h4 class="text-xl font-poppins font-bold text-navy-800 dark:text-white">Le SAVOIR</h4>
+                                <p class="text-xs uppercase tracking-wider text-slate-500 mb-4 font-poppins font-semibold">La compétence</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                                    <strong>Neuroplasticité :</strong> Passer de l'ignorance à la compétence est un réencodage physique du cerveau.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-200 dark:border-navy-700 text-xs space-y-2">
+                                <p class="text-rose-600 dark:text-rose-400"><strong>Piège :</strong> L'illusion de connaissance ("penser qu'on sait").</p>
+                                <p class="text-emeraldCustom-600 dark:text-emeraldCustom-400 font-semibold"><strong>Exigence :</strong> Temps, répétition et feedbacks bienveillants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cartographie des Biais -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 overflow-hidden shadow-lg border border-slate-200 dark:border-navy-700">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white">Cartographie des biais par étape</h3>
+                            <p class="text-xs text-slate-500">Des obstacles cognitifs aux antidotes comportementaux</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-lg bg-emeraldCustom-50 dark:bg-navy-800 text-emeraldCustom-600 dark:text-emerald-400 text-xs font-poppins font-semibold self-start sm:self-auto">
+                            Matrice de résilience
+                        </span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="border-b border-slate-200 dark:border-navy-700 bg-slate-50/50 dark:bg-navy-800/50 text-slate-500 uppercase text-[11px] font-poppins tracking-wider">
+                                    <th class="p-3.5">Étape</th>
+                                    <th class="p-3.5">Biais identifié</th>
+                                    <th class="p-3.5">L'antidote préconisé</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-navy-700/60 font-sans">
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-emeraldCustom-600 dark:text-emerald-400">Diagnostic <span class="text-xs font-normal text-slate-400">(Je peux ?)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Biais de surconfiance</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Humilité socratique — audit réaliste des ressources.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-emeraldCustom-600 dark:text-emerald-400">Diagnostic <span class="text-xs font-normal text-slate-400">(Je peux ?)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Impuissance acquise</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Locus de contrôle interne — circonscrire une zone d'impact minimale.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-teal-600 dark:text-teal-400">Motivation <span class="text-xs font-normal text-slate-400">(Je veux ?)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Biais de conformité</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Changer de tribu — s'entourer de personnes ayant déjà franchi le pas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-teal-600 dark:text-teal-400">Motivation <span class="text-xs font-normal text-slate-400">(Je veux ?)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Biais de confirmation</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Curiosité délibérée — chercher activement les données contradictoires.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-sky-600 dark:text-sky-400">Compétence <span class="text-xs font-normal text-slate-400">(Je sais ?)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Illusion de connaissance</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Pratique délibérée avec feedback immédiat.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-amber-600 dark:text-amber-400">Action <span class="text-xs font-normal text-slate-400">(Je fais)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Biais du présent</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Récompenses immédiates — fixer des victoires à 7 jours.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 dark:hover:bg-navy-800/40">
+                                    <td class="p-3.5 font-semibold text-amber-600 dark:text-amber-400">Action <span class="text-xs font-normal text-slate-400">(Je fais)</span></td>
+                                    <td class="p-3.5 font-medium text-rose-600 dark:text-rose-400">Escalade d'engagement</td>
+                                    <td class="p-3.5 text-slate-700 dark:text-slate-300">Audit zéro — se demander : "Si je recommençais aujourd'hui..."</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Kit de Survie Callout -->
+                    <div class="mt-8 p-6 rounded-2xl bg-gradient-to-r from-navy-800 to-navy-900 text-white shadow-md">
+                        <h4 class="text-lg font-poppins font-bold text-emeraldCustom-100 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-kit-medical text-emeraldCustom-500"></i>
+                            SYNTHÈSE — LE "KIT DE SURVIE" CONTRE LES BIAIS
+                        </h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300 font-sans">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emeraldCustom-500 mt-1"></i>
+                                <span>Ne faites pas confiance à votre intuition initiale — elle cherche le statu quo.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emeraldCustom-500 mt-1"></i>
+                                <span>Automatisez les bonnes décisions : faites de l'action désirée l'option par défaut.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emeraldCustom-500 mt-1"></i>
+                                <span>Cherchez le feedback, même douloureux, plutôt que la confirmation rassurante.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emeraldCustom-500 mt-1"></i>
+                                <span>Soyez bienveillant avec l'échec : c'est le témoignage physique du recâblage cérébral.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTIE 2 : LE TUTEUR (LIPPITT-KNOSTER) -->
+        <section id="tuteur" class="py-20 bg-slate-100/60 dark:bg-navy-800/40 border-y border-slate-200 dark:border-navy-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-8 sm:p-12 nature-card-tuteur shadow-2xl relative overflow-hidden border border-teal-500/20">
+                    <div class="flex items-center space-x-3 mb-4 font-poppins">
+                        <span class="px-3 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/80 dark:text-teal-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 2</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Modèle Lippitt-Knoster</span>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
+                        <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
+                            Le Tuteur — <span class="font-serif italic font-normal text-teal-600 dark:text-teal-400">Donner structure à l'élan</span>
+                        </h2>
+                        <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-teal-500/50 shadow-lg shrink-0">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Tuteur et Plante">
+                        </div>
+                    </div>
+
+                    <blockquote class="text-xl italic text-slate-700 dark:text-slate-300 border-l-4 border-teal-500 pl-4 mb-8 font-serif">
+                        "Sans structure, la transformation devient confusion ; sans émotion, elle reste mécanique."
+                    </blockquote>
+
+                    <!-- Metaphore Vanille de La Réunion -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 mb-12 border-l-8 border-teal-500 flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-20 h-20 rounded-2xl overflow-hidden border border-teal-500/40 shadow-md shrink-0">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover" alt="Vanille Réunion">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-poppins font-bold text-navy-800 dark:text-white mb-2">Inspiration Botanique — La Vanille de La Réunion</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-serif">
+                                L'énergie vitale, aussi puissante soit-elle, a besoin d'une direction. Observez la vanille dans un jardin à La Réunion : sans tuteur pour l'aider à grimper vers la lumière, elle rampe au sol, s'épuise et finit par pourrir. Pour structurer la transformation sans l'étouffer, le modèle Lippitt-Knoster offre une anatomie rigoureuse du changement réussi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Lippitt-Knoster Diagnostic Grid -->
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 dark:border-navy-700">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white">Les 6 Composantes — L'Anatomie du changement</h3>
+                            <p class="text-xs text-slate-500 mt-1">Interrogez les symptômes organisationnels pour identifier l'élément manquant :</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                            <!-- Vision -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-poppins font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">1. Vision</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 font-semibold font-poppins">Si absente: Confusion</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white text-base">L'héliotropisme</h4>
+                                <p class="text-xs text-slate-500 mb-2">Cap vers la lumière</p>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Donner un "pourquoi" lumineux, motivant et partagé.</p>
+                            </div>
+
+                            <!-- Consensus -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-poppins font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">2. Consensus</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300 font-semibold font-poppins">Si absent: Sabotage</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white text-base">Le système racinaire</h4>
+                                <p class="text-xs text-slate-500 mb-2">Ancrage collectif</p>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Créer l'alignement réel des volontés et des intérêts.</p>
+                            </div>
+
+                            <!-- Compétences -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-poppins font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">3. Compétences</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 font-semibold font-poppins">Si absentes: Anxiété</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white text-base">La sève</h4>
+                                <p class="text-xs text-slate-500 mb-2">Capacité interne</p>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Donner les moyens concrets d'apprendre et de réussir.</p>
+                            </div>
+
+                            <!-- Incitations -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-poppins font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">4. Incitations</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300 font-semibold font-poppins">Si absentes: Résistance</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white text-base">Le nectar</h4>
+                                <p class="text-xs text-slate-500 mb-2">Énergie du désir</p>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Répondre clairement : "Pourquoi s'engager dans cet effort ?"</p>
+                            </div>
+
+                            <!-- Ressources -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-poppins font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">5. Ressources</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300 font-semibold font-poppins">Si absentes: Frustration</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white text-base">L'eau et le soleil</h4>
+                                <p class="text-xs text-slate-500 mb-2">Carburant</p>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Temps, budget, outils adaptatifs, énergie humaine.</p>
+                            </div>
+
+                            <!-- Plan d'action -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-poppins font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">6. Plan d'Action</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-200 font-semibold font-poppins">Si absent: Surplace</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white text-base">Le cycle des saisons</h4>
+                                <p class="text-xs text-slate-500 mb-2">Rythme</p>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Canaliser l'attention et incarner la vision dans le temps.</p>
+                            </div>
+                        </div>
+
+                        <!-- Diagnostic Rule Box -->
+                        <div class="p-6 rounded-2xl bg-teal-50 dark:bg-navy-800 border border-teal-200 dark:border-navy-600">
+                            <h4 class="font-poppins font-bold text-teal-900 dark:text-teal-300 mb-2 text-sm uppercase tracking-wide">
+                                <i class="fa-solid fa-stethoscope mr-1"></i> Règle de Diagnostic Opérationnel
+                            </h4>
+                            <p class="text-sm text-slate-700 dark:text-slate-300">
+                                Face à une difficulté dans votre transformation, <strong>n'accusez pas les hommes</strong>. Interrogez la structure :
+                            </p>
+                            <ul class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-medium text-slate-700 dark:text-slate-300">
+                                <li class="p-2 rounded bg-white dark:bg-navy-900 shadow-xs border border-slate-100 dark:border-navy-700">⚡ Ils sont anxieux ? → <strong>Renforcez les compétences.</strong></li>
+                                <li class="p-2 rounded bg-white dark:bg-navy-900 shadow-xs border border-slate-100 dark:border-navy-700">⚡ Ils sabotent ? → <strong>Retravaillez le consensus.</strong></li>
+                                <li class="p-2 rounded bg-white dark:bg-navy-900 shadow-xs border border-slate-100 dark:border-navy-700">⚡ Ils sont frustrés ? → <strong>Apportez des ressources.</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Neurocognitive Integration Table (Sama Karaki Removed) -->
+                    <div class="mt-12 glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-navy-700">
+                        <div class="mb-6">
+                            <span class="text-xs font-poppins font-bold text-teal-600 uppercase tracking-widest">Variante d'Intégration</span>
+                            <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white">Les 4 étapes d'alignement neurocognitif</h3>
+                            <p class="text-xs text-slate-500 mt-1">Liaison entre composantes organisationnelles et état neuro-émotionnel des équipes</p>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm">
+                                <thead>
+                                    <tr class="border-b border-slate-200 dark:border-navy-700 text-slate-500 font-poppins uppercase text-[11px] tracking-wider">
+                                        <th class="p-3">État Neurocognitif</th>
+                                        <th class="p-3">Verbatim du collaborateur</th>
+                                        <th class="p-3">Composantes Lippitt-Knoster</th>
+                                        <th class="p-3">Risque majeur</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 dark:divide-navy-700/60 font-sans">
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600 dark:text-teal-400">Circonstances <span class="text-xs font-normal text-slate-400">(Je peux)</span></td>
+                                        <td class="p-3 italic text-slate-600 dark:text-slate-300">"Je dois mais je ne peux pas"</td>
+                                        <td class="p-3 font-medium">Vision + Consensus + Ressources</td>
+                                        <td class="p-3 text-rose-500 font-semibold">Confusion, angoisse</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600 dark:text-teal-400">Motivations <span class="text-xs font-normal text-slate-400">(Je veux)</span></td>
+                                        <td class="p-3 italic text-slate-600 dark:text-slate-300">"Je peux mais je ne veux pas"</td>
+                                        <td class="p-3 font-medium">Vision + Incitations + Consensus</td>
+                                        <td class="p-3 text-rose-500 font-semibold">Sabotage, inertie</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600 dark:text-teal-400">Compétences <span class="text-xs font-normal text-slate-400">(Je sais)</span></td>
+                                        <td class="p-3 italic text-slate-600 dark:text-slate-300">"Je veux mais je ne sais pas"</td>
+                                        <td class="p-3 font-medium">Compétences + Ressources</td>
+                                        <td class="p-3 text-rose-500 font-semibold">Frustration</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600 dark:text-teal-400">Actions <span class="text-xs font-normal text-slate-400">(Je fais)</span></td>
+                                        <td class="p-3 italic text-slate-600 dark:text-slate-300">"Je sais mais je ne fais pas"</td>
+                                        <td class="p-3 font-medium">Plan d'action + Incitations</td>
+                                        <td class="p-3 text-rose-500 font-semibold">Tapis roulant (épuisement)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTIE 3 : L'ÉCOSYSTÈME (RCOV) -->
+        <section id="ecosysteme" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 nature-card-ecosysteme shadow-2xl relative overflow-hidden border border-sky-500/20">
+                <div class="flex items-center space-x-3 mb-4 font-poppins">
+                    <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/80 dark:text-sky-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 3</span>
+                    <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Matrice RCOV</span>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
+                    <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
+                        L'Écosystème — <span class="font-serif italic font-normal text-sky-600 dark:text-sky-400">Aligner son modèle économique</span>
+                    </h2>
+                    <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-sky-500/50 shadow-lg shrink-0">
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Écosystème Forêt">
+                    </div>
+                </div>
+
+                <blockquote class="text-xl italic text-slate-700 dark:text-slate-300 border-l-4 border-sky-500 pl-4 mb-8 font-serif">
+                    "Changer sans reconfigurer son modèle économique, c'est arroser un jardin sans adapter la terre."
+                </blockquote>
+
+                <p class="text-slate-700 dark:text-slate-300 max-w-4xl text-base leading-relaxed mb-12 font-sans">
+                    L'entreprise ne vit pas seule : elle échange en permanence des flux avec son environnement. La matrice RCOV permet de comprendre, décrire et transformer un modèle économique dans une perspective dynamique et systémique.
+                </p>
+
+                <!-- Les 4 Composantes du RCOV -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="glass-card rounded-2xl p-6 border-t-4 border-sky-500">
+                        <span class="text-2xl font-poppins font-bold text-sky-500">RC</span>
+                        <h4 class="text-lg font-poppins font-bold text-navy-800 dark:text-white mt-2">Ressources & Compétences</h4>
+                        <p class="text-xs text-slate-500 mt-2">Quelles ressources soutiennent le changement ?</p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-navy-700 text-[11px] text-slate-600 dark:text-slate-400">
+                            Lien LK : Ressources / Compétences
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 border-t-4 border-emerald-500">
+                        <span class="text-2xl font-poppins font-bold text-emerald-500">O</span>
+                        <h4 class="text-lg font-poppins font-bold text-navy-800 dark:text-white mt-2">Organisation</h4>
+                        <p class="text-xs text-slate-500 mt-2">Comment les ressources sont-elles articulées ?</p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-navy-700 text-[11px] text-slate-600 dark:text-slate-400">
+                            Lien LK : Consensus / Plan d'action
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 border-t-4 border-amber-500">
+                        <span class="text-2xl font-poppins font-bold text-amber-500">V</span>
+                        <h4 class="text-lg font-poppins font-bold text-navy-800 dark:text-white mt-2">Proposition de Valeur</h4>
+                        <p class="text-xs text-slate-500 mt-2">Quelle valeur créons-nous pour nos parties prenantes ?</p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-navy-700 text-[11px] text-slate-600 dark:text-slate-400">
+                            Lien LK : Vision / Incitations
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 border-t-4 border-indigo-500">
+                        <span class="text-2xl font-poppins font-bold text-indigo-500">F</span>
+                        <h4 class="text-lg font-poppins font-bold text-navy-800 dark:text-white mt-2">Flux Financiers</h4>
+                        <p class="text-xs text-slate-500 mt-2">Les flux sont-ils soutenables et cohérents ?</p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-navy-700 text-[11px] text-slate-600 dark:text-slate-400">
+                            Lien LK : Ressources / Plan d'action
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Les 7 Mécanismes d'Entraînement -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-lg border border-slate-200 dark:border-navy-700 mb-12">
+                    <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white mb-2">Les 7 mécanismes d'entraînement</h3>
+                    <p class="text-xs text-slate-500 mb-6">Le RCOV n'est pas une photo figée : il repose sur des boucles circulaires dynamiques</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                            <div class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400">RC → V &bull; Exploiter</div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Comment mieux utiliser nos ressources pour créer de la valeur ?</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                            <div class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400">V → RC &bull; Valoriser</div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Comment utiliser notre valeur pour attirer de nouvelles ressources ?</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                            <div class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400">RC → O &bull; Intégrer</div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Comment mieux intégrer nos ressources dans l'organisation ?</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                            <div class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400">O → RC &bull; Développer</div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Comment l'organisation peut-elle générer plus de ressources ?</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                            <div class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400">V → O &bull; Aligner</div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Notre organisation est-elle cohérente avec la valeur promise ?</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                            <div class="text-xs font-poppins font-bold text-sky-600 dark:text-sky-400">O → V &bull; Performer</div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Comment améliorer l'efficacité pour mieux délivrer la valeur ?</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-4 rounded-xl bg-emeraldCustom-50 dark:bg-navy-800 border border-emeraldCustom-200 dark:border-navy-600">
+                        <div class="text-xs font-poppins font-bold text-emeraldCustom-700 dark:text-emeraldCustom-300">Marge → RC &bull; Investir</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Où réinjecter les excédents pour renforcer durablement nos ressources stratégiques ?</p>
+                    </div>
+                </div>
+
+                <!-- Méthodologie en 3 étapes -->
+                <div class="p-6 rounded-3xl bg-navy-800 text-white shadow-xl">
+                    <h3 class="text-xl font-poppins font-bold text-white mb-6">Méthodologie RCOV en 3 étapes</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                        <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md">
+                            <span class="w-7 h-7 rounded-full bg-emeraldCustom-500 text-white inline-flex items-center justify-center font-bold text-xs mb-3 font-poppins">1</span>
+                            <h4 class="font-poppins font-bold text-emeraldCustom-100 mb-2">Décrire le modèle</h4>
+                            <p class="text-xs text-slate-300">Dresser une carte claire et partagée des ressources, compétences, offre et flux financiers. (Atelier RCOV)</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md">
+                            <span class="w-7 h-7 rounded-full bg-emeraldCustom-500 text-white inline-flex items-center justify-center font-bold text-xs mb-3 font-poppins">2</span>
+                            <h4 class="font-poppins font-bold text-emeraldCustom-100 mb-2">Analyser les incohérences</h4>
+                            <p class="text-xs text-slate-300">Identifier les déséquilibres, dépendances fragiles, ressources manquantes et flux non soutenables.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md">
+                            <span class="w-7 h-7 rounded-full bg-emeraldCustom-500 text-white inline-flex items-center justify-center font-bold text-xs mb-3 font-poppins">3</span>
+                            <h4 class="font-poppins font-bold text-emeraldCustom-100 mb-2">Mettre en mouvement</h4>
+                            <p class="text-xs text-slate-300">Traduire les 7 mécanismes en plan concret : Action — Responsable — Ressource — Échéance — Indicator.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTIE 4 : LES FRUITS (OKR) -->
+        <section id="fruits" class="py-20 bg-slate-100/60 dark:bg-navy-800/40 border-y border-slate-200 dark:border-navy-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-8 sm:p-12 nature-card-fruits shadow-2xl relative overflow-hidden border border-amber-500/20">
+                    <div class="flex items-center space-x-3 mb-4 font-poppins">
+                        <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/80 dark:text-amber-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 4</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Méthode OKR</span>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
+                        <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
+                            Les Fruits — <span class="font-serif italic font-normal text-amber-600 dark:text-amber-400">Activer la transformation</span>
+                        </h2>
+                        <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-amber-500/50 shadow-lg shrink-0">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Fruits et Récolte">
+                        </div>
+                    </div>
+
+                    <blockquote class="text-xl italic text-slate-700 dark:text-slate-300 border-l-4 border-amber-500 pl-4 mb-8 font-serif">
+                        "Le vivant n'avance pas à grands pas, mais à petits cycles mesurés."
+                    </blockquote>
+
+                    <!-- Doerr Formula Interactive Banner -->
+                    <div class="glass-card rounded-3xl p-8 mb-12 border-l-8 border-amber-500 shadow-xl">
+                        <span class="text-xs font-poppins font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">La Formule de John Doerr</span>
+                        <div class="mt-4 p-6 rounded-2xl bg-amber-50 dark:bg-navy-900 border border-amber-200 dark:border-navy-700 text-center">
+                            <p class="text-xl sm:text-2xl font-serif text-navy-800 dark:text-slate-100 font-semibold">
+                                "Je vais <span class="text-amber-600 dark:text-amber-400 underline font-bold">[OBJECTIF]</span>, tel que mesuré par <span class="text-emeraldCustom-600 dark:text-emeraldCustom-400 underline font-bold">[CES RÉSULTATS CLÉS]</span>."
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 text-sm">
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-compass text-amber-500"></i> Objectifs (O)
+                                </h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Qualitatifs, mémorables, inspirants, orientés vers le sens.</p>
+                                <span class="inline-block mt-3 text-[11px] font-mono text-emeraldCustom-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 p-2 rounded">
+                                    Ex: "Devenir une organisation apprenante et régénérative."
+                                </span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                                <h4 class="font-poppins font-bold text-navy-800 dark:text-white flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-chart-line text-emeraldCustom-500"></i> Résultats Clés (KR)
+                                </h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300">Quantitatifs et mesurables — toujours basés sur la valeur, non sur les tâches.</p>
+                                <span class="inline-block mt-3 text-[11px] font-mono text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 p-2 rounded">
+                                    Structure type : "Améliorer X de A à B." (2 à 5 KR / objectif)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alignement OKR & Lippitt-Knoster -->
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-lg border border-slate-200 dark:border-navy-700 mb-12">
+                        <h3 class="text-2xl font-poppins font-bold text-navy-800 dark:text-white mb-2">Alignement des OKR avec Lippitt-Knoster</h3>
+                        <p class="text-xs text-slate-500 mb-6">Comment chaque pilier organisationnel s'incarne en mesure d'impact</p>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm">
+                                <thead>
+                                    <tr class="border-b border-slate-200 dark:border-navy-700 text-slate-500 font-poppins uppercase text-[11px] tracking-wider">
+                                        <th class="p-3">Composante Lippitt-Knoster</th>
+                                        <th class="p-3">Type d'OKR associé</th>
+                                        <th class="p-3">Exemple Concret</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 dark:divide-navy-700/60 font-sans">
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600">Vision</td>
+                                        <td class="p-3 font-medium">Objective</td>
+                                        <td class="p-3 text-slate-600 dark:text-slate-300">"Devenir une organisation apprenante et régénérative."</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600">Consensus</td>
+                                        <td class="p-3 font-medium">Key Results Collectifs</td>
+                                        <td class="p-3 text-slate-600 dark:text-slate-300">"90% des équipes impliquées dans un atelier de co-vision."</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600">Compétences</td>
+                                        <td class="p-3 font-medium">Key Results Développement</td>
+                                        <td class="p-3 text-slate-600 dark:text-slate-300">"Former 15 managers au modèle Lippitt-Knoster."</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600">Incitations</td>
+                                        <td class="p-3 font-medium">Key Results Motivationnels</td>
+                                        <td class="p-3 text-slate-600 dark:text-slate-300">"Mesure d'engagement des équipes > 8/10."</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600">Ressources</td>
+                                        <td class="p-3 font-medium">Key Results de Moyens</td>
+                                        <td class="p-3 text-slate-600 dark:text-slate-300">"Budget de formation validé et mobilisé."</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 dark:hover:bg-navy-800/40">
+                                        <td class="p-3 font-semibold text-teal-600">Plan d'action</td>
+                                        <td class="p-3 font-medium">Key Results d'Exécution</td>
+                                        <td class="p-3 text-slate-600 dark:text-slate-300">"Livrer 3 prototypes régénératifs d'ici 6 mois."</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Boucle d'apprentissage & Erreurs à éviter -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Boucle -->
+                        <div class="p-6 rounded-2xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 shadow-sm">
+                            <h4 class="font-poppins font-bold text-navy-800 dark:text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-rotate text-emeraldCustom-500"></i>
+                                La Boucle d'Apprentissage
+                            </h4>
+                            <ol class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 font-poppins">1</span>
+                                    <span><strong>Fixer l'intention :</strong> Objective clair et inspirant.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 font-poppins">2</span>
+                                    <span><strong>Mesurer le progrès :</strong> Check-in hebdomadaire agile.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 font-poppins">3</span>
+                                    <span><strong>Ajuster le plan :</strong> Initiatives évolutives et souples.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 font-poppins">4</span>
+                                    <span><strong>Célébrer et ancrer :</strong> Clôture du cycle et valorisation.</span>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Erreurs -->
+                        <div class="p-6 rounded-2xl bg-rose-50 dark:bg-navy-900/60 border border-rose-200 dark:border-rose-900/40 shadow-sm">
+                            <h4 class="font-poppins font-bold text-rose-800 dark:text-rose-300 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-500"></i>
+                                Erreurs courantes à éviter
+                            </h4>
+                            <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300 font-sans">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>Résultats clés non mesurables :</strong> Sans chiffre concret, ce n'est pas un KR.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>Trop d'OKR :</strong> Moins, c'est plus (2 à 3 objectifs max par cycle).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>Confondre initiatives et résultats :</strong> Une simple tâche exécutée n'est pas un résultat d'impact.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-0.5"></i>
+                                    <span><strong>Lier directement à la rémunération :</strong> L'OKR est un outil de gestion et d'alignement, pas de sanction.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYNTHÈSE & CONCLUSION (LE VIVANT COMME BOUSSOLE) -->
+        <section id="synthesis" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 shadow-2xl border border-slate-200 dark:border-navy-700 text-center relative overflow-hidden nature-card-ecosysteme">
+                <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-emeraldCustom-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <span class="text-xs font-poppins font-bold uppercase tracking-widest text-emeraldCustom-600 dark:text-emeraldCustom-400">Synthèse Générale</span>
+                <h2 class="text-3xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white mt-2 mb-6">Le vivant comme boussole</h2>
+
+                <p class="text-slate-600 dark:text-slate-300 font-serif italic text-lg sm:text-xl max-w-3xl mx-auto mb-10">
+                    "Changer, ce n'est pas se transformer en autre chose. C'est retrouver une forme plus juste, plus cohérente, plus vivante."
+                </p>
+
+                <!-- 4 Compass Grid with Nature Image Badges -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-10">
+                    <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 flex items-start gap-3 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-emerald-500/40 shrink-0">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover" alt="Sol">
+                        </div>
+                        <div>
+                            <h4 class="font-poppins font-bold text-xs uppercase text-emeraldCustom-600 dark:text-emeraldCustom-400 tracking-wider">1. Neurosciences</h4>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">T'apprennent comment ton cerveau change.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 flex items-start gap-3 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-teal-500/40 shrink-0">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover" alt="Tuteur">
+                        </div>
+                        <div>
+                            <h4 class="font-poppins font-bold text-xs uppercase text-teal-600 dark:text-teal-400 tracking-wider">2. Lippitt-Knoster</h4>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">Te donne le cadre et la structure.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 flex items-start gap-3 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-sky-500/40 shrink-0">
+                            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover" alt="Écosystème">
+                        </div>
+                        <div>
+                            <h4 class="font-poppins font-bold text-xs uppercase text-sky-600 dark:text-sky-400 tracking-wider">3. Matrice RCOV</h4>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">T'offre la cohérence économique et systémique.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white dark:bg-navy-800 border border-slate-200 dark:border-navy-700 flex items-start gap-3 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-amber-500/40 shrink-0">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover" alt="Fruits">
+                        </div>
+                        <div>
+                            <h4 class="font-poppins font-bold text-xs uppercase text-amber-600 dark:text-amber-400 tracking-wider">4. Méthode OKR</h4>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">T'aide à ancrer la vision dans l'action.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-emeraldCustom-500 to-emeraldCustom-700 text-white shadow-lg max-w-2xl mx-auto">
+                    <p class="font-poppins font-semibold italic text-base sm:text-lg">
+                        Tout le reste est un art du vivant : observer, nourrir, réparer, embellir.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER / BRANDING CONTACT -->
+        <footer class="bg-navy-900 text-white border-t border-navy-700/80 py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                
+                <div class="space-y-3 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start space-x-3">
+                        <svg class="w-8 h-8 text-emeraldCustom-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="35" cy="50" r="28" stroke="currentColor" stroke-width="4" stroke-dasharray="4 2"/>
+                            <circle cx="65" cy="50" r="28" stroke="currentColor" stroke-width="4"/>
+                            <path d="M50 25 C 40 40, 40 60, 50 75 C 60 60, 60 40, 50 25 Z" fill="currentColor" opacity="0.3"/>
+                        </svg>
+                        <span class="font-poppins font-extrabold text-xl tracking-tight">CARBON <span class="text-emeraldCustom-500">CONSEIL</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-sm">
+                        Stratégie d'innovation et transformation des organisations.
+                    </p>
+                    <p class="text-xs font-poppins text-emeraldCustom-400 font-bold tracking-wide uppercase italic">
+                        CLARIFIER le cap &bull; MOBILISER les équipes &bull; ANCRER les résultats.
+                    </p>
+                </div>
+
+                <div class="text-center md:text-right space-y-2 text-xs text-slate-400 font-sans">
+                    <p class="font-poppins font-bold text-slate-200 text-sm">François Miyeli</p>
+                    <p>Facilitateur en transformation organisationnelle</p>
+                    <p><a href="https://www.carbonconseil.com" target="_blank" class="text-emeraldCustom-400 hover:underline font-poppins font-semibold">www.carbonconseil.com</a></p>
+                    <p class="text-[10px] text-slate-500 pt-2">&copy; 2026 Carbon Conseil. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Scroll progress bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollBar").style.width = scrolled + "%";
+        };
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
