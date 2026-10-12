@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecotone 360 — Le Guide du Changement Vivant | Carbon Conseil</title>
+    <title>Ecotones 360 — Le Guide du Changement Vivant | Carbon Conseil</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -69,7 +69,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
-        
+
         /* Realistic integrated nature background textures for plaquette feel */
         .nature-card-sol {
             background-image: linear-gradient(to bottom, rgba(250, 248, 245, 0.92), rgba(250, 248, 245, 0.96)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80');
@@ -107,6 +107,10 @@
             background-image: linear-gradient(to bottom, rgba(6, 17, 30, 0.92), rgba(11, 25, 44, 0.96)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80');
         }
 
+        /* Accès au guide : masqué tant que le formulaire n'est pas validé */
+        html.locked header, html.locked main { display: none !important; }
+        html:not(.locked) #gate { display: none; }
+
         @media print {
             .no-print { display: none !important; }
             body { background: white !important; color: black !important; }
@@ -114,13 +118,46 @@
             .glass-card { border: 1px solid #ddd !important; box-shadow: none !important; }
         }
     </style>
+    <script>
+        // Verrouille le guide dès le chargement si le visiteur ne s'est pas encore qualifié
+        try { if (localStorage.getItem('ecotones_acces') !== '1') document.documentElement.classList.add('locked'); }
+        catch (e) { document.documentElement.classList.add('locked'); }
+    </script>
 </head>
 <body class="bg-sand text-slate-800 dark:bg-navy-900 dark:text-slate-100 transition-colors duration-300 font-sans antialiased selection:bg-emeraldCustom-500 selection:text-white">
+
+    <!-- FORMULAIRE D'ACCÈS (QUALIFICATION) -->
+    <div id="gate" class="min-h-screen gradient-bg flex items-center justify-center px-4 py-12 font-poppins">
+        <form id="gateForm" class="w-full max-w-lg bg-white rounded-3xl p-8 shadow-2xl space-y-4 text-slate-800">
+            <div class="text-center">
+                <p class="text-xs font-bold uppercase tracking-widest text-emeraldCustom-600">Carbon Conseil</p>
+                <h1 class="text-3xl font-black text-navy-800 mt-1">ECOTONES <span class="text-emeraldCustom-500">360</span></h1>
+                <p class="text-base font-serif italic text-slate-600 mt-1">Le guide du changement vivant</p>
+                <p class="text-sm text-slate-600 mt-3">Renseignez vos coordonnées pour accéder au guide.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input name="prenom" required placeholder="Prénom" aria-label="Prénom" autocomplete="given-name" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+                <input name="nom" required placeholder="Nom" aria-label="Nom" autocomplete="family-name" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            </div>
+            <input name="email" type="email" required placeholder="Adresse e-mail" aria-label="Adresse e-mail" autocomplete="email" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <input name="telephone" type="tel" required placeholder="Téléphone" aria-label="Téléphone" autocomplete="tel" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <input name="entreprise" required placeholder="Entreprise" aria-label="Entreprise" autocomplete="organization" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <input name="fonction" required placeholder="Fonction" aria-label="Fonction" autocomplete="organization-title" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <!-- Champ piège anti-robots : doit rester vide -->
+            <input name="site_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+            <label class="flex items-start gap-2 text-xs text-slate-600">
+                <input name="consentement" type="checkbox" required class="mt-0.5">
+                <span>J'accepte que Carbon Conseil utilise ces informations pour me recontacter au sujet de ses services.</span>
+            </label>
+            <button id="gateBtn" type="submit" class="w-full py-3 rounded-full bg-emeraldCustom-500 hover:bg-emeraldCustom-600 text-white font-bold transition">Accéder au guide</button>
+            <p id="gateError" class="hidden text-xs text-rose-600 text-center">Une erreur est survenue. Merci de réessayer.</p>
+        </form>
+    </div>
 
     <!-- Progress Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 no-print transition-all duration-300 bg-white/90 dark:bg-navy-800/90 backdrop-blur-md border-b border-slate-200 dark:border-navy-700 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            
+
             <!-- Brand / Logo Header -->
             <div class="flex items-center space-x-3">
                 <div class="flex items-center">
@@ -362,7 +399,7 @@
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/80 dark:text-emerald-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 1</span>
                     <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Neurosciences</span>
                 </div>
-                
+
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
                     <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
                         Le Sol — <span class="font-serif italic font-normal text-emeraldCustom-600 dark:text-emeraldCustom-500">Comprendre son terrain intérieur</span>
@@ -386,7 +423,7 @@
                         <i class="fa-solid fa-scale-balanced text-emeraldCustom-500"></i>
                         La dualité cognitive (Daniel Kahneman)
                     </h3>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Système 1 -->
                         <div class="glass-card rounded-2xl p-6 border-l-8 border-amber-500 shadow-md">
@@ -606,7 +643,7 @@
                         <span class="px-3 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/80 dark:text-teal-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 2</span>
                         <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Modèle Lippitt-Knoster</span>
                     </div>
-                    
+
                     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
                         <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
                             Le Tuteur — <span class="font-serif italic font-normal text-teal-600 dark:text-teal-400">Donner structure à l'élan</span>
@@ -729,7 +766,7 @@
                         </div>
                     </div>
 
-                    <!-- Neurocognitive Integration Table (Sama Karaki Removed) -->
+                    <!-- Neurocognitive Integration Table -->
                     <div class="mt-12 glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-navy-700">
                         <div class="mb-6">
                             <span class="text-xs font-poppins font-bold text-teal-600 uppercase tracking-widest">Variante d'Intégration</span>
@@ -787,7 +824,7 @@
                     <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/80 dark:text-sky-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 3</span>
                     <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Matrice RCOV</span>
                 </div>
-                
+
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
                     <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
                         L'Écosystème — <span class="font-serif italic font-normal text-sky-600 dark:text-sky-400">Aligner son modèle économique</span>
@@ -898,7 +935,7 @@
                         <div class="p-4 rounded-xl bg-white/10 backdrop-blur-md">
                             <span class="w-7 h-7 rounded-full bg-emeraldCustom-500 text-white inline-flex items-center justify-center font-bold text-xs mb-3 font-poppins">3</span>
                             <h4 class="font-poppins font-bold text-emeraldCustom-100 mb-2">Mettre en mouvement</h4>
-                            <p class="text-xs text-slate-300">Traduire les 7 mécanismes en plan concret : Action — Responsable — Ressource — Échéance — Indicator.</p>
+                            <p class="text-xs text-slate-300">Traduire les 7 mécanismes en plan concret : Action — Responsable — Ressource — Échéance — Indicateur.</p>
                         </div>
                     </div>
                 </div>
@@ -913,7 +950,7 @@
                         <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/80 dark:text-amber-300 text-xs font-bold uppercase tracking-widest shadow-xs">PARTIE 4</span>
                         <span class="text-slate-500 dark:text-slate-400 text-sm font-semibold">&bull; Outil : Méthode OKR</span>
                     </div>
-                    
+
                     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
                         <h2 class="text-4xl sm:text-5xl font-poppins font-bold text-navy-800 dark:text-white">
                             Les Fruits — <span class="font-serif italic font-normal text-amber-600 dark:text-amber-400">Activer la transformation</span>
@@ -1130,7 +1167,7 @@
         <!-- FOOTER / BRANDING CONTACT -->
         <footer class="bg-navy-900 text-white border-t border-navy-700/80 py-16 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-                
+
                 <div class="space-y-3 text-center md:text-left">
                     <div class="flex items-center justify-center md:justify-start space-x-3">
                         <svg class="w-8 h-8 text-emeraldCustom-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1151,7 +1188,7 @@
                 <div class="text-center md:text-right space-y-2 text-xs text-slate-400 font-sans">
                     <p class="font-poppins font-bold text-slate-200 text-sm">François Miyeli</p>
                     <p>Facilitateur en transformation organisationnelle</p>
-                    <p><a href="https://www.carbonconseil.com" target="_blank" class="text-emeraldCustom-400 hover:underline font-poppins font-semibold">www.carbonconseil.com</a></p>
+                    <p><a href="https://www.carbonconseil.com" target="_blank" rel="noopener" class="text-emeraldCustom-400 hover:underline font-poppins font-semibold">www.carbonconseil.com</a></p>
                     <p class="text-[10px] text-slate-500 pt-2">&copy; 2026 Carbon Conseil. Tous droits réservés.</p>
                 </div>
             </div>
@@ -1186,6 +1223,53 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+    </script>
+
+    <!-- Formulaire d'accès : enregistrement du contact dans Supabase -->
+    <script>
+        // À REMPLACER par les valeurs de Supabase > Project Settings > API
+        const SUPABASE_URL = 'https://VOTRE-PROJET.supabase.co';
+        const SUPABASE_KEY = 'VOTRE_CLE_PUBLIQUE'; // clé anon / publishable, jamais la clé service_role
+
+        document.getElementById('gateForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const f = new FormData(this);
+            const btn = document.getElementById('gateBtn');
+            const err = document.getElementById('gateError');
+            const ouvrir = () => {
+                try { localStorage.setItem('ecotones_acces', '1'); } catch (e) {}
+                document.documentElement.classList.remove('locked');
+                window.scrollTo(0, 0);
+            };
+            if (f.get('site_web')) return ouvrir(); // champ piège rempli : robot, on n'enregistre rien
+
+            btn.disabled = true; btn.textContent = 'Envoi…'; err.classList.add('hidden');
+            try {
+                const r = await fetch(SUPABASE_URL + '/rest/v1/leads', {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({
+                        prenom: f.get('prenom').trim(),
+                        nom: f.get('nom').trim(),
+                        email: f.get('email').trim().toLowerCase(),
+                        telephone: f.get('telephone').trim(),
+                        entreprise: f.get('entreprise').trim(),
+                        fonction: f.get('fonction').trim(),
+                        consentement: true
+                    })
+                });
+                if (!r.ok) throw new Error(r.status);
+                ouvrir();
+            } catch (x) {
+                err.classList.remove('hidden');
+                btn.disabled = false; btn.textContent = 'Accéder au guide';
+            }
+        });
     </script>
 </body>
 </html>
