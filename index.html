@@ -133,24 +133,26 @@
                 <p class="text-xs font-bold uppercase tracking-widest text-emeraldCustom-600">Carbon Conseil</p>
                 <h1 class="text-3xl font-black text-navy-800 mt-1">ECOTONES <span class="text-emeraldCustom-500">360</span></h1>
                 <p class="text-base font-serif italic text-slate-600 mt-1">Le guide du changement vivant</p>
-                <p class="text-sm text-slate-600 mt-3">Renseignez vos coordonnées pour accéder au guide.</p>
+                <p id="gateIntro" class="text-sm text-slate-600 mt-3">Renseignez vos coordonnées pour accéder au guide.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Les éléments .gate-full sont masqués en mode « Déjà inscrit » -->
+            <div class="gate-full grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <input name="prenom" required placeholder="Prénom" aria-label="Prénom" autocomplete="given-name" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
                 <input name="nom" required placeholder="Nom" aria-label="Nom" autocomplete="family-name" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
             </div>
             <input name="email" type="email" required placeholder="Adresse e-mail" aria-label="Adresse e-mail" autocomplete="email" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
-            <input name="telephone" type="tel" required placeholder="Téléphone" aria-label="Téléphone" autocomplete="tel" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
-            <input name="entreprise" required placeholder="Entreprise" aria-label="Entreprise" autocomplete="organization" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
-            <input name="fonction" required placeholder="Fonction" aria-label="Fonction" autocomplete="organization-title" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <input name="telephone" type="tel" required placeholder="Téléphone" aria-label="Téléphone" autocomplete="tel" class="gate-full border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <input name="entreprise" required placeholder="Entreprise" aria-label="Entreprise" autocomplete="organization" class="gate-full border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
+            <input name="fonction" required placeholder="Fonction" aria-label="Fonction" autocomplete="organization-title" class="gate-full border border-slate-300 rounded-lg px-3 py-2 text-sm w-full">
             <!-- Champ piège anti-robots : doit rester vide -->
             <input name="site_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
-            <label class="flex items-start gap-2 text-xs text-slate-600">
+            <label class="gate-full flex items-start gap-2 text-xs text-slate-600">
                 <input name="consentement" type="checkbox" required class="mt-0.5">
                 <span>J'accepte que Carbon Conseil utilise ces informations pour me recontacter au sujet de ses services.</span>
             </label>
             <button id="gateBtn" type="submit" class="w-full py-3 rounded-full bg-emeraldCustom-500 hover:bg-emeraldCustom-600 text-white font-bold transition">Accéder au guide</button>
             <p id="gateError" class="hidden text-xs text-rose-600 text-center">Une erreur est survenue. Merci de réessayer.</p>
+            <button id="gateToggle" type="button" class="block mx-auto text-xs text-emeraldCustom-600 font-semibold underline">Déjà inscrit ? Accéder avec mon e-mail</button>
         </form>
     </div>
 
@@ -1231,6 +1233,35 @@
         const SUPABASE_URL = 'https://gcautdfqhnulzoudkdyv.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjYXV0ZGZxaG51bHpvdWRrZHl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4MTUxNzUsImV4cCI6MjEwNzM5MTE3NX0.G-5cfQeXzMzxKIkGRNsSN09qVB9JBHod261Jk7gMjtY'; // clé anon / publishable, jamais la clé service_role
 
+        const SUPABASE_HEADERS = {
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+        };
+        const ERREUR_GENERIQUE = 'Une erreur est survenue. Merci de réessayer.';
+        let modeRetour = false; // true = « Déjà inscrit » : seul l'e-mail est demandé
+
+        // Bascule entre le formulaire complet et l'accès par e-mail seul
+        function setModeRetour(actif) {
+            modeRetour = actif;
+            document.querySelectorAll('#gateForm .gate-full').forEach(function (el) {
+                el.classList.toggle('hidden', actif);
+                (el.matches('input') ? [el] : el.querySelectorAll('input')).forEach(function (i) { i.disabled = actif; });
+            });
+            document.getElementById('gateIntro').textContent = actif
+                ? 'Saisissez l\'adresse e-mail utilisée lors de votre inscription.'
+                : 'Renseignez vos coordonnées pour accéder au guide.';
+            document.getElementById('gateToggle').textContent = actif
+                ? 'Première visite ? Remplir le formulaire'
+                : 'Déjà inscrit ? Accéder avec mon e-mail';
+        }
+
+        document.getElementById('gateToggle').addEventListener('click', function () {
+            document.getElementById('gateError').classList.add('hidden');
+            setModeRetour(!modeRetour);
+        });
+
         document.getElementById('gateForm').addEventListener('submit', async function (e) {
             e.preventDefault();
             const f = new FormData(this);
@@ -1243,20 +1274,31 @@
             };
             if (f.get('site_web')) return ouvrir(); // champ piège rempli : robot, on n'enregistre rien
 
+            const email = f.get('email').trim().toLowerCase();
             btn.disabled = true; btn.textContent = 'Envoi…'; err.classList.add('hidden');
             try {
+                if (modeRetour) {
+                    // Visiteur déjà inscrit : on vérifie seulement que son e-mail est connu
+                    const r = await fetch(SUPABASE_URL + '/rest/v1/rpc/lead_existe', {
+                        method: 'POST',
+                        headers: SUPABASE_HEADERS,
+                        body: JSON.stringify({ p_email: email })
+                    });
+                    if (!r.ok) throw new Error(r.status);
+                    if (await r.json() === true) return ouvrir();
+                    setModeRetour(false);
+                    err.textContent = 'Adresse non reconnue. Merci de remplir le formulaire.';
+                    err.classList.remove('hidden');
+                    btn.disabled = false; btn.textContent = 'Accéder au guide';
+                    return;
+                }
                 const r = await fetch(SUPABASE_URL + '/rest/v1/leads', {
                     method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': 'Bearer ' + SUPABASE_KEY,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
+                    headers: SUPABASE_HEADERS,
                     body: JSON.stringify({
                         prenom: f.get('prenom').trim(),
                         nom: f.get('nom').trim(),
-                        email: f.get('email').trim().toLowerCase(),
+                        email: email,
                         telephone: f.get('telephone').trim(),
                         entreprise: f.get('entreprise').trim(),
                         fonction: f.get('fonction').trim(),
@@ -1266,6 +1308,7 @@
                 if (!r.ok) throw new Error(r.status);
                 ouvrir();
             } catch (x) {
+                err.textContent = ERREUR_GENERIQUE;
                 err.classList.remove('hidden');
                 btn.disabled = false; btn.textContent = 'Accéder au guide';
             }
